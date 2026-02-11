@@ -689,6 +689,7 @@
         </section>
 
         
+        
         <!-- Simulation Tool: Interactive Lab -->
         <section class="content-card bg-white border border-slate-100 dark:bg-slate-900 dark:border-slate-800">
             <h2 class="chapter-title text-slate-900 dark:text-slate-100">Lab：素因数分解・エクスプローラー</h2>
@@ -696,27 +697,20 @@
                 <p class="mb-8">
                     あらゆる合成数は、素数の掛け合わせによって構成されている。数値を入力して、その「原子」である素因数を視覚的に分解してみよう。
                 </p>
-                
                 <div class="diagram-box bg-slate-50 dark:bg-slate-950 p-10 rounded-3xl border border-slate-200 dark:border-slate-800">
                     <div class="w-full max-w-xl space-y-10">
                         <div class="flex gap-4">
                             <input type="number" id="primeInput" value="60" min="2" max="9999" class="flex-1 p-4 border-2 border-slate-200 rounded-2xl font-bold text-xl dark:bg-slate-900 dark:border-slate-800">
                             <button onclick="explorePrimes()" class="px-8 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-500 transition-all">分解実行</button>
                         </div>
-                        
                         <div id="primeResultArea" class="bg-white dark:bg-slate-900 p-10 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 text-center">
-                            <div id="primeVisual" class="flex flex-wrap justify-center gap-4 mb-8">
-                                <!-- Prime bubbles will appear here -->
-                            </div>
-                            <div id="primeEquation" class="text-3xl font-serif text-slate-800 dark:text-slate-200">
-                                2² × 3 × 5 = 60
-                            </div>
+                            <div id="primeVisual" class="flex flex-wrap justify-center gap-4 mb-8"></div>
+                            <div id="primeEquation" class="text-3xl font-serif text-slate-800 dark:text-slate-200">2² × 3 × 5 = 60</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <script>
             function explorePrimes() {
                 let n = parseInt(document.getElementById('primeInput').value);
@@ -732,11 +726,9 @@
                     d++;
                 }
                 if (n > 1) factors[n] = (factors[n] || 0) + 1;
-                
                 const visual = document.getElementById('primeVisual');
                 const eq = document.getElementById('primeEquation');
                 visual.innerHTML = '';
-                
                 let parts = [];
                 for (let p in factors) {
                     for(let i=0; i<factors[p]; i++) {
